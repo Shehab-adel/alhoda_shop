@@ -1,5 +1,7 @@
+import 'package:alhoda/routes/app_routes.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ImageSlider extends StatefulWidget {
@@ -58,7 +60,9 @@ class _ImageSliderState extends State<ImageSlider> {
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(12)),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(AppRoutes.searchScreenRoute);
+                      },
                       icon: const Icon(
                         Icons.search,
                         color: Colors.white,
