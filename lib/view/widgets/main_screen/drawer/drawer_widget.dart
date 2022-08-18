@@ -31,6 +31,7 @@ class DrawerWidget extends StatelessWidget {
     return Column(
         children: DrawerItems.all
             .map((item) => ListTile(
+          onTap: item.onTap,
                   leading: IconButton(
                     onPressed: item.onTap,
                     icon: Icon(
@@ -42,14 +43,14 @@ class DrawerWidget extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                   title: Container(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      item.title,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
+            child: Text(
+              item.title,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
                 ))
             .toList());
   }
