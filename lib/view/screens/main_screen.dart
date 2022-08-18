@@ -1,36 +1,87 @@
-import 'package:alhoda/view/widgets/main_screen/Best_selling_items.dart';
-import 'package:alhoda/view/widgets/main_screen/Items_with_the_most_points.dart';
-import 'package:alhoda/view/widgets/main_screen/mypartener.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../widgets/main_screen/category_group_widget.dart';
-import '../widgets/main_screen/image_slider.dart';
+import '../../controller/main_controller.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
 
+  final mainController = Get.find<MainController>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      backgroundColor: Colors.white.withOpacity(.8),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ImageSlider(),
-            CategoryGroupWidget(),
-            Myparteners(),
-            SizedBox(
-              height: 10,
+      child: Obx(() {
+        return Scaffold(
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.green,
+            onPressed: () {},
+            child: const Icon(Icons.line_style),
+          ),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerDocked,
+          bottomNavigationBar: BottomAppBar(
+            clipBehavior: Clip.antiAlias,
+            shape: const CircularNotchedRectangle(),
+            notchMargin: 8,
+            child: BottomNavigationBar(
+              onTap: (index) {
+                mainController.currentIndex.value = index;
+              },
+              backgroundColor: Colors.white,
+              currentIndex: mainController.currentIndex.value,
+              type: BottomNavigationBarType.fixed,
+              items: const [
+                BottomNavigationBarItem(
+                  activeIcon: Icon(
+                    Icons.home,
+                    color: Colors.green,
+                  ),
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.black,
+                  ),
+                  label: '',
+                ),
+                BottomNavigationBarItem(
+                    activeIcon: Icon(
+                      Icons.category,
+                      color: Colors.green,
+                    ),
+                    icon: Icon(
+                      Icons.category,
+                      color: Colors.black,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    activeIcon: Icon(
+                      Icons.favorite,
+                      color: Colors.green,
+                    ),
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Colors.black,
+                    ),
+                    label: ''),
+                BottomNavigationBarItem(
+                    activeIcon: Icon(
+                      Icons.settings,
+                      color: Colors.green,
+                    ),
+                    icon: Icon(
+                      Icons.settings,
+                      color: Colors.black,
+                    ),
+                    label: ''),
+              ],
             ),
-            BestSellingItems(),
-            SizedBox(
-              height: 10,
-            ),
-            ItemsWithTheMostPoints()
-          ],
-        ),
-      ),
-    ));
+          ),
+          body: IndexedStack(
+            index: mainController.currentIndex.value,
+            children: mainController.item,
+          ),
+        );
+      }),
+    );
   }
 }

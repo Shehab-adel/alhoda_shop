@@ -7,29 +7,40 @@ class CategoryGroupWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Category Groups',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green),
+              ),
+              Container(
+                padding: const EdgeInsets.all(6),
+                margin: const EdgeInsets.only(left: 8),
+                decoration: BoxDecoration(
+                    color: Colors.green.withOpacity(.3),
+                    borderRadius: BorderRadius.circular(6)),
+                child: const Icon(
                   Icons.category,
                   size: 30,
                   color: Colors.green,
-                )),
-            const Text(
-              'مجموعة الاصناف',
-              style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green),
-            )
-          ],
+                ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(
-          height: 5,
+          height: 12,
         ),
         buildCardItem(),
+        const SizedBox(
+          height: 12,
+        ),
       ],
     );
   }
