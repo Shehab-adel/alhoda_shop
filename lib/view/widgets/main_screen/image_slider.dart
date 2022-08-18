@@ -1,4 +1,5 @@
 import 'package:alhoda/routes/app_routes.dart';
+import 'package:alhoda/view/widgets/main_screen/drawer/drawer_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,34 @@ class _ImageSliderState extends State<ImageSlider> {
               child: Row(
                 children: [
                   Container(
-                    height: size.height * .07,
+                    height: size.height * .06,
+                    decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(12)),
+                    child: IconButton(
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            backgroundColor: Colors.green,
+                            elevation: 0,
+                            builder: (buildContext) {
+                              return Container(
+                                  height: size.height, child: DrawerWidget());
+                            });
+                      },
+                      icon: const Icon(
+                        Icons.list,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * .5,
+                  ),
+                  Container(
+                    height: size.height * .06,
                     decoration: BoxDecoration(
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(12)),
@@ -70,8 +98,8 @@ class _ImageSliderState extends State<ImageSlider> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    width: 27,
+                  SizedBox(
+                    width: size.width * .1,
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -81,23 +109,6 @@ class _ImageSliderState extends State<ImageSlider> {
                       onPressed: () {},
                       icon: const Icon(
                         Icons.qr_code_scanner,
-                        color: Colors.white,
-                        size: 32,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width * .5,
-                  ),
-                  Container(
-                    height: size.height * .07,
-                    decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(12)),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.category,
                         color: Colors.white,
                         size: 32,
                       ),
