@@ -1,4 +1,4 @@
-import 'package:alhoda/view/screens/home_screen.dart';
+import 'package:alhoda/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -8,7 +8,9 @@ import 'drawer_item.dart';
 
 class DrawerItems {
   static final home = DrawerItem(
-      title: 'Home', icon: Icons.home, onTap: () => Get.to(() => HomeScreen()));
+      title: 'Home',
+      icon: Icons.home,
+      onTap: () => Get.offAllNamed(AppRoutes.mainScreenRoute));
   static final cart = DrawerItem(
       title: 'Cart',
       icon: Icons.shopping_cart,
