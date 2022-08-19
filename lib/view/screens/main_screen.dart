@@ -1,9 +1,9 @@
 import 'package:alhoda/view/shared/app_bar.dart';
+import 'package:alhoda/view/widgets/main_screen/drawer/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/main_controller.dart';
-import '../../routes/app_routes.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
@@ -21,17 +21,18 @@ class MainScreen extends StatelessWidget {
           appBar: mainController.currentIndex.value != 0
               ? buildAppBar(
                   context: context,
-                  onPressedSearch: () {
-                    Get.toNamed(AppRoutes.searchScreenRoute);
-                  },
                   onPressedIcon: () {
                     mainController.currentIndex.value = 0;
                   },
                   title:
                       mainController.title[mainController.currentIndex.value])
               : null,
-          drawer:
-              mainController.currentIndex.value != 0 ? const Drawer() : null,
+          drawer: mainController.currentIndex.value != 0
+              ? Drawer(
+                  backgroundColor: Colors.green,
+                  child: DrawerWidget(),
+                )
+              : null,
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.green,
             onPressed: () {},

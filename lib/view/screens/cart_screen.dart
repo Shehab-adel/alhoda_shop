@@ -19,9 +19,6 @@ class CartScreen extends StatelessWidget {
         child: Scaffold(
             appBar: buildAppBar(
                 context: context,
-                onPressedSearch: () {
-                  Get.toNamed(AppRoutes.searchScreenRoute);
-                },
                 onPressedIcon: () {
                   Get.offNamed(AppRoutes.mainScreenRoute);
                 },
