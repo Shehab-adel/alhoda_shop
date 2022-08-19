@@ -1,6 +1,7 @@
 import 'package:alhoda/view/widgets/main_screen/drawer/drawer_items.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class DrawerWidget extends StatelessWidget {
   DrawerWidget({Key? key}) : super(key: key);
@@ -43,14 +44,14 @@ class DrawerWidget extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 30),
                   title: Container(
                     alignment: Alignment.centerLeft,
-            child: Text(
-              item.title,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+                    child: Text(
+                      item.title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ))
             .toList());
   }

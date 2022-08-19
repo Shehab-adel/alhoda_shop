@@ -1,18 +1,37 @@
+import 'package:alhoda/view/shared/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/main_controller.dart';
+import '../../routes/app_routes.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
 
   final mainController = Get.find<MainController>();
+  late Size size;
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Obx(() {
         return Scaffold(
+          appBar: mainController.currentIndex.value != 0
+              ? buildAppBar(
+                  context: context,
+                  onPressedSearch: () {
+                    Get.toNamed(AppRoutes.searchScreenRoute);
+                  },
+                  onPressedIcon: () {
+                    mainController.currentIndex.value = 0;
+                  },
+                  title:
+                      mainController.title[mainController.currentIndex.value])
+              : null,
+          drawer:
+              mainController.currentIndex.value != 0 ? const Drawer() : null,
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.green,
             onPressed: () {},
