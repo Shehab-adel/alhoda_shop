@@ -35,37 +35,6 @@ class BestSellingItems extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                            color: Colors.orange,
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Row(
-                            children: const [
-                              Text(
-                                "نقطة",
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "0.0",
-                                style: TextStyle(
-                                    fontSize: 13,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      const Text(
-                        '181.5',
-                        style: TextStyle(fontSize: 16),
-                      ),
                       IconButton(
                           onPressed: () {
                             //controller.manageFavorites(productId);
@@ -74,6 +43,38 @@ class BestSellingItems extends StatelessWidget {
                             Icons.favorite,
                             color: Colors.grey,
                           )),
+                      const Text(
+                        '181.5',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              "0.0",
+                              style: TextStyle(
+                                  fontSize: 9,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: 2,
+                            ),
+                            Text(
+                              "points",
+                              style: TextStyle(
+                                  fontSize: 9,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(
@@ -134,6 +135,17 @@ class BestSellingItems extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        const Padding(
+                          padding: EdgeInsets.all(4.0),
+                          child: Text(
+                            'Add To Cart',
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                         IconButton(
                             onPressed: () {
                               //cartController.addProductToCart(productModels);
@@ -143,14 +155,6 @@ class BestSellingItems extends StatelessWidget {
                               color: Colors.white,
                               size: 20,
                             )),
-                        const Text(
-                          'اضافة الي السلة',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        )
                       ],
                     ),
                   ))
