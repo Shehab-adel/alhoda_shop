@@ -23,7 +23,8 @@ class SearchScreen extends StatelessWidget {
                 SizedBox(
                   height: size.height * .3,
                 ),
-                Image.asset('assets/images/search_empry_light.png')
+                Expanded(
+                    child: Image.asset('assets/images/search_empry_light.png'))
               ],
             ),
           ),

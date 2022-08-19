@@ -4,10 +4,11 @@ import 'package:get/get_core/src/get_main.dart';
 
 import '../../routes/app_routes.dart';
 
-AppBar buildAppBar(
-    {required BuildContext context,
-    required Function() onPressedIcon,
-    required String title}) {
+AppBar buildAppBar({
+  required BuildContext context,
+  required Function() onPressedIcon,
+  required String title,
+}) {
   return AppBar(
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -48,5 +49,71 @@ AppBar buildAppBar(
           )),
     ],
     centerTitle: true,
+  );
+}
+
+Widget buttonPlusAndMinusContainer(
+    {required double height,
+    required double width,
+    required IconData icon,
+    required Color color,
+    required Function() onTap}) {
+  return InkWell(
+    onTap: onTap,
+    child: Container(
+      height: height,
+      width: width,
+      margin: EdgeInsets.only(left: 5),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: color,
+      ),
+      child: Icon(
+        icon,
+        color: Colors.white,
+      ),
+    ),
+  );
+}
+
+Widget addToCart(
+    {required Function() onTap,
+    required double left,
+    required double right,
+    required double top,
+    required double bottom,
+    required double radius}) {
+  return GestureDetector(
+    onTap: onTap,
+    child: Container(
+      margin:
+          EdgeInsets.only(right: right, left: left, bottom: bottom, top: top),
+      decoration: BoxDecoration(
+          color: Colors.green, borderRadius: BorderRadius.circular(radius)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(4.0),
+            child: Text(
+              'Add To Cart',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          IconButton(
+              onPressed: onTap,
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+                size: 20,
+              )),
+        ],
+      ),
+    ),
   );
 }
