@@ -16,7 +16,11 @@ class DrawerItems {
       icon: Icons.shopping_cart,
       onTap: () => Get.to(() => CartScreen()));
   static final orders = DrawerItem(
-      title: 'Orders', icon: FontAwesomeIcons.circleDollarToSlot, onTap: () {});
+      title: 'Orders',
+      icon: FontAwesomeIcons.circleDollarToSlot,
+      onTap: () {
+        Get.toNamed(AppRoutes.ordersScreenRoute);
+      });
   static final wallet =
       DrawerItem(title: 'Wallet', icon: Icons.wallet, onTap: () {});
   static final points = DrawerItem(

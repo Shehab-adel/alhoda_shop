@@ -16,28 +16,33 @@ AppBar buildAppBar({
       color: Colors.green,
       size: 30,
     ),
-    leading: Container(
-      height: MediaQuery.of(context).size.height * .035,
-      width: MediaQuery.of(context).size.width * .1,
-      alignment: Alignment.center,
-      margin: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          color: Colors.green.withOpacity(0.7),
-          borderRadius: BorderRadius.circular(12)),
-      child: IconButton(
-        onPressed: () {
-          Get.toNamed(AppRoutes.searchScreenRoute);
-        },
-        icon: const Icon(
-          Icons.search,
-          color: Colors.white,
-          size: 20,
+    title: Row(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height * .035,
+          width: MediaQuery.of(context).size.width * .1,
+          alignment: Alignment.center,
+          margin: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              color: Colors.green.withOpacity(0.7),
+              borderRadius: BorderRadius.circular(12)),
+          child: IconButton(
+            onPressed: () {
+              Get.toNamed(AppRoutes.searchScreenRoute);
+            },
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+              size: 20,
+            ),
+          ),
         ),
-      ),
-    ),
-    title: Text(
-      title,
-      style: const TextStyle(color: Colors.black),
+        SizedBox(width: MediaQuery.of(context).size.width * 0.13),
+        Text(
+          title,
+          style: const TextStyle(color: Colors.black),
+        ),
+      ],
     ),
     actions: [
       Padding(
