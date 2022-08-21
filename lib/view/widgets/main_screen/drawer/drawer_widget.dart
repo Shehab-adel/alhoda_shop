@@ -57,8 +57,11 @@ class DrawerWidget extends StatelessWidget {
                   Get.toNamed(AppRoutes.supportScreenRoute);
                 }),
             notificationsAndRepliesListTile(
-                'Notifications', Icons.notifications),
-            notificationsAndRepliesListTile('Replies', Icons.quickreply_sharp),
+                'Notifications', Icons.notifications, () {
+              Get.toNamed(AppRoutes.notificationsScreenRoute);
+            }),
+            notificationsAndRepliesListTile(
+                'Replies', Icons.quickreply_sharp, () {}),
           ],
         ),
       ),
@@ -96,8 +99,10 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
-  Widget notificationsAndRepliesListTile(String title, IconData icon) {
+  Widget notificationsAndRepliesListTile(
+      String title, IconData icon, Function() onTap) {
     return InkWell(
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(2.0),
         child: Row(

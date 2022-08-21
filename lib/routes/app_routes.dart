@@ -1,6 +1,7 @@
 import 'package:alhoda/bindings/order_bindings.dart';
 import 'package:alhoda/view/screens/cart_screen.dart';
 import 'package:alhoda/view/screens/drawer_screen.dart';
+import 'package:alhoda/view/screens/notification_screen.dart';
 import 'package:alhoda/view/screens/orders_screen.dart';
 import 'package:alhoda/view/screens/point_screen.dart';
 import 'package:alhoda/view/screens/search_screen.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const walletScreenRoute = '/wallet';
   static const pointScreenRoute = '/point_screen';
   static const supportScreenRoute = '/support_screen';
+  static const notificationsScreenRoute = '/notifications_screen';
 
   static final routes = [
     GetPage(
@@ -60,6 +62,10 @@ class AppRoutes {
     GetPage(
       name: supportScreenRoute,
       page: () => SupportScreen(),
+    ),
+    GetPage(
+      name: notificationsScreenRoute,
+      page: () => NotificationsScreen(),
     ),
   ];
 }
