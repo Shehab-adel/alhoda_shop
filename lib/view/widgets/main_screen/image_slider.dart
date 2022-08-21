@@ -68,8 +68,7 @@ class _ImageSliderState extends State<ImageSlider> {
                             backgroundColor: Colors.green,
                             elevation: 0,
                             builder: (buildContext) {
-                              return Container(
-                                  height: size.height, child: DrawerWidget());
+                              return DrawerWidget();
                             });
                       },
                       icon: const Icon(

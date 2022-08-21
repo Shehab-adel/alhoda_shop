@@ -1,5 +1,4 @@
 import 'package:alhoda/view/shared/app_bar.dart';
-import 'package:alhoda/view/widgets/main_screen/drawer/drawer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,16 +7,14 @@ import '../../controller/main_controller.dart';
 class MainScreen extends StatelessWidget {
   MainScreen({Key? key}) : super(key: key);
 
-  final mainController = Get.find<MainController>();
+  MainController mainController = Get.find<MainController>();
   late Size size;
 
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-
-    return SafeArea(
-      child: Obx(() {
-        return Scaffold(
+    return Obx(() => SafeArea(
+            child: Scaffold(
           appBar: mainController.currentIndex.value != 0
               ? buildAppBar(
                   context: context,
@@ -30,7 +27,6 @@ class MainScreen extends StatelessWidget {
           drawer: mainController.currentIndex.value != 0
               ? Drawer(
                   backgroundColor: Colors.green,
-                  child: DrawerWidget(),
                 )
               : null,
           floatingActionButton: FloatingActionButton(
@@ -100,8 +96,6 @@ class MainScreen extends StatelessWidget {
             index: mainController.currentIndex.value,
             children: mainController.item,
           ),
-        );
-      }),
-    );
+        )));
   }
 }

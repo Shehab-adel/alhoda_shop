@@ -9,12 +9,12 @@ class DrawerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return SafeArea(
-        child: Container(
-      margin: EdgeInsets.only(left: size.width * .5),
       child: Scaffold(
         backgroundColor: Colors.green,
-        body: DrawerWidget(),
+        body: Column(
+          children: [DrawerWidget()],
+        ),
       ),
-    ));
+    );
   }
 }
