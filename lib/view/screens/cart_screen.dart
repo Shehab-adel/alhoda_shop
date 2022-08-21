@@ -20,7 +20,8 @@ class CartScreen extends StatelessWidget {
                 onPressedIcon: () {
                   Get.back();
                 },
-                title: 'Cart'),
+                title: 'Cart',
+                sizeMediaQueryWidth: 0.2),
             drawer: Drawer(
               backgroundColor: Colors.green,
               child: DrawerWidget(),

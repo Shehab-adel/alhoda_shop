@@ -1,4 +1,4 @@
-import 'package:alhoda/view/widgets/search_screen/seach_text_form.dart';
+import 'package:alhoda/view/widgets/search_screen/search_text_form.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {

@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 
 import '../bindings/main_bindings.dart';
 import '../view/screens/main_screen.dart';
+import '../view/screens/support_screen.dart';
 
 class AppRoutes {
   static const mainScreenRoute = '/main_screen';
@@ -20,6 +21,7 @@ class AppRoutes {
   static const ordersScreenRoute = '/orders';
   static const walletScreenRoute = '/wallet';
   static const pointScreenRoute = '/point_screen';
+  static const supportScreenRoute = '/support_screen';
 
   static final routes = [
     GetPage(
@@ -54,6 +56,10 @@ class AppRoutes {
     GetPage(
       name: pointScreenRoute,
       page: () => PointsScreen(),
+    ),
+    GetPage(
+      name: supportScreenRoute,
+      page: () => SupportScreen(),
     ),
   ];
 }
