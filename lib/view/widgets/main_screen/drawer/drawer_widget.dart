@@ -47,9 +47,11 @@ class DrawerWidget extends StatelessWidget {
             drawerItem(
                 title: 'Points',
                 icon: FontAwesomeIcons.bagShopping,
-                onTap: () {}),
+                onTap: () {
+                  Get.toNamed(AppRoutes.pointScreenRoute);
+                }),
             drawerItem(
-                title: 'Home',
+                title: 'Support',
                 icon: Icons.perm_contact_cal_outlined,
                 onTap: () {}),
             notificationsAndRepliesListTile(
