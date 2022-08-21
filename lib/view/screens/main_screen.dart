@@ -22,7 +22,8 @@ class MainScreen extends StatelessWidget {
                     mainController.currentIndex.value = 0;
                   },
                   title:
-                      mainController.title[mainController.currentIndex.value])
+                      mainController.title[mainController.currentIndex.value],
+                  sizeMediaQueryWidth: 0.5)
               : null,
           drawer: mainController.currentIndex.value != 0
               ? Drawer(

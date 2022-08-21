@@ -53,7 +53,9 @@ class DrawerWidget extends StatelessWidget {
             drawerItem(
                 title: 'Support',
                 icon: Icons.perm_contact_cal_outlined,
-                onTap: () {}),
+                onTap: () {
+                  Get.toNamed(AppRoutes.supportScreenRoute);
+                }),
             notificationsAndRepliesListTile(
                 'Notifications', Icons.notifications),
             notificationsAndRepliesListTile('Replies', Icons.quickreply_sharp),

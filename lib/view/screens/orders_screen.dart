@@ -17,7 +17,8 @@ class OrderScreen extends StatelessWidget {
             onPressedIcon: () {
               Get.back();
             },
-            title: 'Orders'),
+            title: 'Orders',
+            sizeMediaQueryWidth: 0.2),
         drawer: Drawer(
           backgroundColor: Colors.green,
           child: DrawerWidget(),

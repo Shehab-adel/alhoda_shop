@@ -8,7 +8,7 @@ AppBar buildAppBar({
   required BuildContext context,
   required Function() onPressedIcon,
   required String title,
-}) {
+  required double sizeMediaQueryWidth}) {
   return AppBar(
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -16,11 +16,12 @@ AppBar buildAppBar({
       color: Colors.green,
       size: 30,
     ),
+    leadingWidth: MediaQuery.of(context).size.width * .05,
     title: Row(
       children: [
         Container(
-          height: MediaQuery.of(context).size.height * .035,
-          width: MediaQuery.of(context).size.width * .1,
+          height: MediaQuery.of(context).size.height * .037,
+          width: MediaQuery.of(context).size.width * .08,
           alignment: Alignment.center,
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -37,16 +38,21 @@ AppBar buildAppBar({
             ),
           ),
         ),
-        SizedBox(width: MediaQuery.of(context).size.width * 0.13),
-        Text(
-          title,
-          style: const TextStyle(color: Colors.black),
+        SizedBox(
+            width: MediaQuery.of(context).size.width * sizeMediaQueryWidth),
+        Expanded(
+          child: Text(
+            title,
+            style: const TextStyle(
+              color: Colors.black,
+            ),
+          ),
         ),
       ],
     ),
     actions: [
       Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(top: 8.0),
           child: IconButton(
             onPressed: onPressedIcon,
             icon: const Icon(Icons.arrow_forward),

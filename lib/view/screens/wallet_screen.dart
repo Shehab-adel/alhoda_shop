@@ -21,7 +21,8 @@ class WalletScreen extends StatelessWidget {
           onPressedIcon: () {
             Get.back();
           },
-          title: 'Wallet'),
+          title: 'Wallet',
+          sizeMediaQueryWidth: .2),
       drawer: Drawer(
         backgroundColor: Colors.green,
         child: DrawerWidget(),

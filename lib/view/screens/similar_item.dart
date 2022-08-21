@@ -18,7 +18,8 @@ class SimilarCardItems extends StatelessWidget {
           onPressedIcon: () {
             Get.back();
           },
-          title: 'Similar Items'),
+          title: 'Similar Items',
+          sizeMediaQueryWidth: .5),
       body: ListView.builder(
           itemBuilder: (buildContext, index) {
             return SizedBox(

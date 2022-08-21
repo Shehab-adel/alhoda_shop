@@ -1,4 +1,4 @@
-import 'package:alhoda/view/widgets/point_card.dart';
+import 'package:alhoda/view/widgets/points_screen/point_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +20,8 @@ class PointsScreen extends StatelessWidget {
           onPressedIcon: () {
             Get.back();
           },
-          title: 'Points'),
+          title: 'Points',
+          sizeMediaQueryWidth: .2),
       drawer: Drawer(
         backgroundColor: Colors.green,
         child: DrawerWidget(),
