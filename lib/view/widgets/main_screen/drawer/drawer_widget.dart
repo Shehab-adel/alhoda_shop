@@ -60,8 +60,10 @@ class DrawerWidget extends StatelessWidget {
                 'Notifications', Icons.notifications, () {
               Get.toNamed(AppRoutes.notificationsScreenRoute);
             }),
-            notificationsAndRepliesListTile(
-                'Replies', Icons.quickreply_sharp, () {}),
+            notificationsAndRepliesListTile('Replies', Icons.quickreply_sharp,
+                () {
+              Get.toNamed(AppRoutes.repliesScreenRoute);
+            }),
           ],
         ),
       ),
