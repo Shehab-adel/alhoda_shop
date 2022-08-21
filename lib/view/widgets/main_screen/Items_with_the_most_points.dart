@@ -95,7 +95,7 @@ class _BestSellingItemsState extends State<ItemsWithTheMostPoints> {
 
   Widget dropDownBottomContainer() {
     return PopupMenuButton(
-        icon: const Icon(Icons.arrow_drop_down),
+        icon: const Icon(Icons.expand_more),
         itemBuilder: (context) {
           return const [
             PopupMenuItem<int>(
