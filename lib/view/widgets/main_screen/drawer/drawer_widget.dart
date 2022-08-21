@@ -42,7 +42,7 @@ class DrawerWidget extends StatelessWidget {
                 title: 'Wallet',
                 icon: Icons.wallet,
                 onTap: () {
-                  Get.toNamed(AppRoutes.ordersScreenRoute);
+                  Get.toNamed(AppRoutes.walletScreenRoute);
                 }),
             drawerItem(
                 title: 'Points',
