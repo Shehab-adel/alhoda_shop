@@ -26,7 +26,8 @@ class _CardTransactionWidgetState extends State<CardTransactionWidget> {
               height: size.height * 0.04,
               width: size.width * 0.08,
               decoration: BoxDecoration(
-                  color: isExpansionChanged ? Colors.orange : Colors.black,
+                  color:
+                      isExpansionChanged ? Colors.black : Colors.orangeAccent,
                   borderRadius: BorderRadius.circular(16),
                   border: Border.all(color: Colors.white)),
               child: const Icon(
@@ -40,9 +41,9 @@ class _CardTransactionWidgetState extends State<CardTransactionWidget> {
                 fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
           ),
           trailing: Icon(
-            isExpansionChanged ? Icons.expand_more : Icons.expand_less,
+            isExpansionChanged ? Icons.expand_less : Icons.expand_more,
             size: 23,
-            color: isExpansionChanged ? Colors.orange : Colors.black,
+            color: isExpansionChanged ? Colors.black : Colors.orangeAccent,
           ),
           children: [
             SizedBox(
