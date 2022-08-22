@@ -26,10 +26,12 @@ class PointsScreen extends StatelessWidget {
         backgroundColor: Colors.green,
         child: DrawerWidget(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [PointCard()],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [PointCard()],
+          ),
         ),
       ),
     ));

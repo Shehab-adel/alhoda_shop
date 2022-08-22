@@ -15,12 +15,12 @@ class HomeScreen extends StatelessWidget {
     size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.orange.shade200,
+      backgroundColor: Colors.yellow.withOpacity(0.6),
       body: SingleChildScrollView(
         child: Column(
           children: [
             const ImageSlider(),
-            const CategoryGroupWidget(),
+            CategoryGroupWidget(),
             const Myparteners(),
             const SizedBox(
               height: 12,

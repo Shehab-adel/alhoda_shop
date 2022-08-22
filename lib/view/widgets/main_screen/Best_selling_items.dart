@@ -21,33 +21,25 @@ class _BestSellingItemsState extends State<BestSellingItems> {
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height * .3,
-      width: double.infinity,
-      child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (buildContext, index) {
-            return Container(
-                height: size.height * .4,
-                width: size.width * .5,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.white,
-                      spreadRadius: 2.0,
-                      blurRadius: 1.0,
-                    )
-                  ],
-                ),
-                child: buildCardItem());
-          },
-          separatorBuilder: (buildContext, index) {
-            return const SizedBox(
-              width: 20,
-            );
-          },
-          itemCount: 10),
+    return Padding(
+      padding: const EdgeInsets.only(left: 11.0, right: 8.0),
+      child: SizedBox(
+        height: size.height * .36,
+        child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (buildContext, index) {
+              return Card(
+                  elevation: 15,
+                  child:
+                      SizedBox(width: size.width * .5, child: buildCardItem()));
+            },
+            separatorBuilder: (buildContext, index) {
+              return const SizedBox(
+                width: 10,
+              );
+            },
+            itemCount: 10),
+      ),
     );
   }
 
@@ -164,12 +156,12 @@ class _BestSellingItemsState extends State<BestSellingItems> {
             ),
           ],
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: size.height * .01,
         ),
         Container(
           width: size.width * 0.15,
-          height: size.height * 0.07,
+          height: size.height * 0.1,
           decoration: const BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
@@ -178,7 +170,7 @@ class _BestSellingItemsState extends State<BestSellingItems> {
           ),
         ),
         SizedBox(
-          height: size.height * 0.01,
+          height: size.height * 0.02,
         ),
         Text(
           overflow: TextOverflow.ellipsis,
@@ -202,10 +194,10 @@ class _BestSellingItemsState extends State<BestSellingItems> {
           () => cartController.isAddedPress.value
               ? plusAndAddCartContainer()
               : addToCart(
-                  right: 12,
+              right: 8,
                   top: 5,
                   bottom: 10,
-                  left: 10,
+                  left: 8,
                   radius: 5,
                   onTap: () {
                     cartController.changeIsPressToCart();
