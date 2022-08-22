@@ -1,14 +1,22 @@
+import 'package:alhoda/view/widgets/category_screen/category_card.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../controller/main_controller.dart';
 
 class CategoryGroupWidget extends StatelessWidget {
-  const CategoryGroupWidget({Key? key}) : super(key: key);
+  CategoryGroupWidget({Key? key}) : super(key: key);
+
+  late Size size;
+  final mainController = Get.find<MainController>();
 
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(4.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -19,16 +27,21 @@ class CategoryGroupWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.green),
               ),
-              Container(
-                padding: const EdgeInsets.all(6),
-                margin: const EdgeInsets.only(left: 8),
-                decoration: BoxDecoration(
-                    color: Colors.green.withOpacity(.3),
-                    borderRadius: BorderRadius.circular(6)),
-                child: const Icon(
-                  Icons.category,
-                  size: 30,
-                  color: Colors.green,
+              InkWell(
+                onTap: () {
+                  mainController.currentIndex.value = 1;
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(6),
+                  margin: const EdgeInsets.only(left: 8),
+                  decoration: BoxDecoration(
+                      color: Colors.green.withOpacity(.3),
+                      borderRadius: BorderRadius.circular(6)),
+                  child: const Icon(
+                    Icons.category,
+                    size: 30,
+                    color: Colors.green,
+                  ),
                 ),
               ),
             ],
@@ -37,7 +50,10 @@ class CategoryGroupWidget extends StatelessWidget {
         const SizedBox(
           height: 12,
         ),
-        buildCardItem(),
+        Padding(
+          padding: const EdgeInsets.only(left: 15.0, right: 15),
+          child: buildCardItem(),
+        ),
         const SizedBox(
           height: 12,
         ),
@@ -47,55 +63,14 @@ class CategoryGroupWidget extends StatelessWidget {
 
   Widget buildCardItem() {
     return SizedBox(
-      height: 150,
+      height: size.height * .29,
       child: ListView.separated(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (buildContext, index) {
-            return Container(
-                height: 100,
-                width: 150,
-                color: Colors.white,
-                child: Stack(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Text('title'),
-                        ),
-                        Image.asset(
-                          'assets/images/th.jpg',
-                          height: 70,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      ],
-                    ),
-                    Positioned(
-                      left: 35,
-                      right: 35,
-                      top: 35,
-                      bottom: 35,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            border: Border.all(
-                              color: Colors.white,
-                              width: 4,
-                            )),
-                        child: const CircleAvatar(
-                          radius: 20,
-                          backgroundImage:
-                              AssetImage('assets/images/Splash.png'),
-                        ),
-                      ),
-                    )
-                  ],
-                ));
+            return CategoryCard();
           },
-          separatorBuilder: (buildContext, index) => SizedBox(
+          separatorBuilder: (buildContext, index) => const SizedBox(
                 width: 10,
               ),
           itemCount: 10),

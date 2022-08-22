@@ -11,12 +11,13 @@ AppBar buildAppBar({
   required double sizeMediaQueryWidth}) {
   return AppBar(
     elevation: 0,
+    toolbarHeight: MediaQuery.of(context).size.height * .075,
     backgroundColor: Colors.transparent,
     iconTheme: const IconThemeData(
       color: Colors.green,
       size: 30,
     ),
-    leadingWidth: MediaQuery.of(context).size.width * .05,
+    leadingWidth: MediaQuery.of(context).size.width * .12,
     title: Row(
       children: [
         Container(

@@ -1,3 +1,4 @@
+import 'package:alhoda/controller/main_controller.dart';
 import 'package:alhoda/view/shared/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,46 +9,75 @@ class ItemsWithTheMostPoints extends StatefulWidget {
   ItemsWithTheMostPoints({Key? key}) : super(key: key);
 
   @override
-  State<ItemsWithTheMostPoints> createState() => _BestSellingItemsState();
+  State<ItemsWithTheMostPoints> createState() => _ItemsWithTheMostPointsState();
 }
 
-class _BestSellingItemsState extends State<ItemsWithTheMostPoints> {
+class _ItemsWithTheMostPointsState extends State<ItemsWithTheMostPoints> {
   late Size size;
 
   final cartController = Get.find<CartController>();
-
+  final mainController = Get.find<MainController>();
   String selectedText = 'كرتونة = 10 كيس';
 
   @override
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height * .3,
-      width: double.infinity,
-      child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (buildContext, index) {
-            return Container(
-                height: size.height * .4,
-                width: size.width * .5,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.white,
-                      spreadRadius: 2.0,
-                      blurRadius: 1.0,
-                    )
-                  ],
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Items with most points',
+                style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green),
+              ),
+              InkWell(
+                onTap: () {
+                  mainController.currentIndex.value = 1;
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(6),
+                  margin: const EdgeInsets.only(left: 8),
+                  decoration: BoxDecoration(
+                      color: Colors.green.withOpacity(.3),
+                      borderRadius: BorderRadius.circular(6)),
+                  child: const Icon(
+                    Icons.category,
+                    size: 30,
+                    color: Colors.green,
+                  ),
                 ),
-                child: buildCardItem());
-          },
-          separatorBuilder: (buildContext, index) {
-            return const SizedBox(
-              width: 20,
-            );
-          },
-          itemCount: 10),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 11.0, right: 15),
+          child: SizedBox(
+            height: size.height * .36,
+            width: double.infinity,
+            child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (buildContext, index) {
+                  return Card(
+                      elevation: 15,
+                      child: SizedBox(
+                          width: size.width * .5, child: buildCardItem()));
+                },
+                separatorBuilder: (buildContext, index) {
+                  return const SizedBox(
+                    width: 10,
+                  );
+                },
+                itemCount: 10),
+          ),
+        ),
+      ],
     );
   }
 
@@ -164,12 +194,12 @@ class _BestSellingItemsState extends State<ItemsWithTheMostPoints> {
             ),
           ],
         ),
-        const SizedBox(
-          height: 5,
+        SizedBox(
+          height: size.height * .01,
         ),
         Container(
           width: size.width * 0.15,
-          height: size.height * 0.07,
+          height: size.height * 0.1,
           decoration: const BoxDecoration(
             color: Colors.white,
             image: DecorationImage(
@@ -178,7 +208,7 @@ class _BestSellingItemsState extends State<ItemsWithTheMostPoints> {
           ),
         ),
         SizedBox(
-          height: size.height * 0.01,
+          height: size.height * 0.02,
         ),
         Text(
           overflow: TextOverflow.ellipsis,
@@ -199,13 +229,13 @@ class _BestSellingItemsState extends State<ItemsWithTheMostPoints> {
           ],
         ),
         Obx(
-          () => cartController.isAddedPress.value
+              () => cartController.isAddedPress.value
               ? plusAndAddCartContainer()
               : addToCart(
-                  right: 12,
+                  right: 8,
                   top: 5,
-                  bottom: 5,
-                  left: 10,
+                  bottom: 10,
+                  left: 8,
                   radius: 5,
                   onTap: () {
                     cartController.changeIsPressToCart();

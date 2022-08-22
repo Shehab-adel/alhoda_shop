@@ -1,3 +1,4 @@
+import 'package:alhoda/controller/main_controller.dart';
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -9,6 +10,7 @@ class DrawerWidget extends StatelessWidget {
   DrawerWidget({Key? key}) : super(key: key);
 
   late Size size;
+  final mainController = Get.find<MainController>();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,14 @@ class DrawerWidget extends StatelessWidget {
                 icon: Icons.home,
                 onTap: () {
                   Get.offNamed(AppRoutes.mainScreenRoute);
-                  Get.back();
+                  mainController.currentIndex.value = 0;
+                }),
+            drawerItem(
+                title: 'Favorite',
+                icon: Icons.favorite,
+                onTap: () {
+                  Get.offNamed(AppRoutes.mainScreenRoute);
+                  mainController.currentIndex.value = 2;
                 }),
             drawerItem(
                 title: 'Cart',
@@ -64,16 +73,22 @@ class DrawerWidget extends StatelessWidget {
                 () {
               Get.toNamed(AppRoutes.repliesScreenRoute);
             }),
+            drawerItem(
+                title: 'Settings',
+                icon: Icons.settings,
+                onTap: () {
+                  Get.offNamed(AppRoutes.mainScreenRoute);
+                  mainController.currentIndex.value = 3;
+                }),
           ],
         ),
       ),
     );
   }
 
-  Widget drawerItem(
-      {required String title,
-      required IconData icon,
-      required Function() onTap}) {
+  Widget drawerItem({required String title,
+    required IconData icon,
+    required Function() onTap}) {
     return InkWell(
       onTap: onTap,
       child: Padding(
@@ -101,8 +116,7 @@ class DrawerWidget extends StatelessWidget {
     );
   }
 
-  Widget notificationsAndRepliesListTile(
-      String title, IconData icon, Function() onTap) {
+  Widget notificationsAndRepliesListTile(String title, IconData icon, Function() onTap) {
     return InkWell(
       onTap: onTap,
       child: Padding(

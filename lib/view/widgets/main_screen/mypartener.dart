@@ -8,7 +8,7 @@ class Myparteners extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(4.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -34,15 +34,15 @@ class Myparteners extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(
-          height: 12,
+        Padding(
+          padding: const EdgeInsets.only(left: 15.0),
+          child: buildCardItem(),
         ),
-        buildCardItem(),
         const SizedBox(
-          height: 12,
+          height: 5,
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -68,33 +68,33 @@ class Myparteners extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(
-          height: 12,
-        ),
       ],
     );
   }
 
   Widget buildCardItem() {
-    return SizedBox(
-      height: 135,
-      child: ListView.separated(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (buildContext, index) {
-            return const SizedBox(
-              width: 135,
-              height: 135,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage('assets/images/facebook.png'),
-              ),
-            );
-          },
-          separatorBuilder: (buildContext, index) => const SizedBox(
-                width: 15,
-              ),
-          itemCount: 10),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: SizedBox(
+        height: 135,
+        child: ListView.separated(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (buildContext, index) {
+              return const SizedBox(
+                width: 135,
+                height: 135,
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('assets/images/facebook.png'),
+                ),
+              );
+            },
+            separatorBuilder: (buildContext, index) => const SizedBox(
+                  width: 13,
+                ),
+            itemCount: 10),
+      ),
     );
   }
 }

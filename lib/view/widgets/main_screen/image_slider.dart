@@ -46,7 +46,10 @@ class _ImageSliderState extends State<ImageSlider> {
                     enableInfiniteScroll: false,
                     enlargeCenterPage: true,
                     viewportFraction: 1,
-                    autoPlayInterval: const Duration(seconds: 3),
+                    autoPlayInterval: const Duration(
+                      seconds: 3,
+                    ),
+                    pauseAutoPlayOnTouch: false,
                     onPageChanged: (index, reson) {
                       currentPage = index;
                       setState(() {});
